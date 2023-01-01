@@ -18,9 +18,12 @@ export class EventDetailsComponent implements OnInit {
     let id: number = Number(this.activatedRoute.snapshot.params['id']);
     if (id) {
       this.event = this.eventService.getEventById(id);
+      if (this.event == null) {
+        this.router.navigate(['not-found']);
+      }
     }
     else {
-      this.router.navigate(['events']);
+      this.router.navigate(['not-found']);
     }
   }
 

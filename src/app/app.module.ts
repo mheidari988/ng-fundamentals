@@ -12,6 +12,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { AppRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component';
+import { PageNotFoundComponent } from './shared/errors/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { CreateEventComponent } from './events/create-event.component';
     EventThumbnailComponent,
     NavbarComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    PageNotFoundComponent
   ],
   providers: [
     EventService
