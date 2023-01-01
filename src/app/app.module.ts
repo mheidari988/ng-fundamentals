@@ -8,19 +8,26 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { EventService } from './events/shared/eventService';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { AppRoutes } from './routes';
+import { RouterModule } from '@angular/router';
+import { CreateEventComponent } from './events/create-event.component';
 
 @NgModule({
   imports: [
+    RouterModule.forRoot(AppRoutes),
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'inline' }),
-    ToastContainerModule
+    ToastContainerModule,
   ],
   declarations: [
     EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
-    NavbarComponent
+    NavbarComponent,
+    EventDetailsComponent,
+    CreateEventComponent
   ],
   providers: [
     EventService

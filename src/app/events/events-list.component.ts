@@ -3,14 +3,14 @@ import { EventService } from "./shared/eventService";
 import { ToastContainerDirective, ToastrService } from "ngx-toastr";
 
 @Component({
-    selector: 'events-list',
     template: `
     <div>
         <h1>Upcoming Angular Events</h1>
         <hr />
         <div class="row">
             <div *ngFor="let event of events" class="col-md-5">
-                <event-thumbnail [event]="event" (click)="onThumbnailClick(event.name)"></event-thumbnail>
+                <event-thumbnail [event]="event" [routerLink]="['/events',event.id]"
+                (click)="onThumbnailClick(event.name)"></event-thumbnail>
             </div>
         </div>
     </div>
