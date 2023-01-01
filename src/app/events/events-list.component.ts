@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ToastContainerDirective, ToastrService } from "ngx-toastr";
 import { ActivatedRoute } from "@angular/router";
+import { IEvent } from "./models/ievent";
 
 @Component({
     template: `
@@ -18,7 +19,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class EventsListComponent implements OnInit {
 
-    events: any;
+    events?: IEvent[];
 
     @ViewChild(ToastContainerDirective, { static: true }) toastContainer!: ToastContainerDirective;
 

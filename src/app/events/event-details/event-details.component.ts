@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/eventService';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { IEvent } from '../models/ievent';
 
 @Component({
   templateUrl: './event-details.component.html',
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
-  event: any;
+  event?: IEvent;
 
   constructor(
     private eventService: EventService,
-    private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
