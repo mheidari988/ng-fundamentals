@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { EventService } from "./shared/eventService";
+import { ToastContainerDirective, ToastrService } from "ngx-toastr";
 
 @Component({
     selector: 'events-list',
@@ -9,7 +10,7 @@ import { EventService } from "./shared/eventService";
         <hr />
         <div class="row">
             <div *ngFor="let event of events" class="col-md-5">
-                <event-thumbnail [event]="event"></event-thumbnail>
+                <event-thumbnail [event]="event" (click)="onThumbnailClick(event.name)"></event-thumbnail>
             </div>
         </div>
     </div>
@@ -19,9 +20,18 @@ export class EventsListComponent implements OnInit {
 
     events: any;
 
-    constructor(private eventService: EventService) { }
+    @ViewChild(ToastContainerDirective, { static: true }) toastContainer!: ToastContainerDirective;
+
+    constructor(
+        private eventService: EventService,
+        private toastrService: ToastrService) { }
 
     ngOnInit() {
         this.events = this.eventService.getEvents();
+        this.toastrService.overlayContainer = this.toastContainer;
+    }
+
+    onThumbnailClick(eventName: string) {
+        this.toastrService.success(eventName);
     }
 }
