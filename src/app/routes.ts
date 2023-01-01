@@ -11,6 +11,7 @@ export const AppRoutes: Routes = [
     { path: 'events', component: EventsListComponent, resolve: { events: EventListResolver } },
     { path: 'events/new', component: CreateEventComponent, canDeactivate: ['canDeactivateCreateEvent'] },
     { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivatorGuard] },
+    { path: 'users', loadChildren: () => import('./users/user.module').then(m => m.UserModule) },
     { path: '', pathMatch: 'full', redirectTo: 'events' },
     { path: '**', component: PageNotFoundComponent },
 ]
