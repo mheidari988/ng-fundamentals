@@ -13,6 +13,7 @@ import { AppRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component';
 import { PageNotFoundComponent } from './shared/errors/page-not-found.component';
+import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { PageNotFoundComponent } from './shared/errors/page-not-found.component'
     PageNotFoundComponent
   ],
   providers: [
-    EventService
+    EventService,
+    EventRouteActivatorGuard
   ],
   bootstrap: [
     EventsAppComponent
