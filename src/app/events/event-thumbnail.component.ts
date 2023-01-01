@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
     selector: 'event-thumbnail',
@@ -13,6 +13,7 @@ import { Component, Input } from "@angular/core";
                 <span>&nbsp;</span>
                 <span>{{ event.location.city }}, {{ event.location.country }}</span>
             </div>
+            <button class="btn btn-primary">Click me!</button>
         </div>  
     `
 })
