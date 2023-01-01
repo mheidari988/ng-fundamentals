@@ -23,6 +23,8 @@ import { Router } from '@angular/router';
 })
 export class CreateEventComponent {
 
+  isDirtyState = true;
+
   constructor(private router: Router) {
   }
 
