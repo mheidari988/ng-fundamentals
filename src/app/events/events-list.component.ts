@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { EventService } from "./shared/eventService";
 import { ToastContainerDirective, ToastrService } from "ngx-toastr";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     template: `
@@ -23,11 +23,11 @@ export class EventsListComponent implements OnInit {
     @ViewChild(ToastContainerDirective, { static: true }) toastContainer!: ToastContainerDirective;
 
     constructor(
-        private eventService: EventService,
-        private toastrService: ToastrService) { }
+        private toastrService: ToastrService,
+        private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
-        this.events = this.eventService.getEvents();
+        this.events = this.activatedRoute.snapshot.data['events'];
         this.toastrService.overlayContainer = this.toastContainer;
     }
 

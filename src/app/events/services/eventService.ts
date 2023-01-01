@@ -1,9 +1,20 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class EventService {
+
     getEvents() {
-        return EVENTS;
+        let subject = new Subject();
+
+        let min = 100, max = 1000;
+
+        setTimeout(() => {
+            subject.next(EVENTS);
+            subject.complete();
+        }, min + Math.random() * (max - min));
+
+        return subject;
     }
 
     getEventById(id: number) {

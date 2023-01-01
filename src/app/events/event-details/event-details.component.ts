@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../shared/eventService';
+import { EventService } from '../services/eventService';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -15,13 +15,8 @@ export class EventDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id: number = Number(this.activatedRoute.snapshot.params['id']);
-    if (id) {
-      this.event = this.eventService.getEventById(id);
-    }
-    else {
-      this.router.navigate(['events']);
-    }
+    const id: number = Number(this.activatedRoute.snapshot.params['id']);
+    this.event = this.eventService.getEventById(id);
   }
 
 }
