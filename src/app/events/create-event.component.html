@@ -11,15 +11,15 @@
       class="form-group"
       [ngClass]="{
         error:
-          newEventForm.controls['name']?.invalid &&
-          newEventForm.controls['name']?.touched
+          newEventForm.controls['name']!.invalid &&
+          newEventForm.controls['name']!.touched
       }"
     >
       <label for="eventName">Event Name:</label>
       <em
         *ngIf="
-          newEventForm.controls['name']?.invalid &&
-          newEventForm.controls['name']?.touched
+          newEventForm.controls['name']!.invalid &&
+          newEventForm.controls['name']!.touched
         "
         >Required</em
       >
@@ -36,15 +36,15 @@
       class="form-group"
       [ngClass]="{
         error:
-          newEventForm.controls['date']?.invalid &&
-          newEventForm.controls['date']?.touched
+          newEventForm.controls['date']!.invalid &&
+          newEventForm.controls['date']!.touched
       }"
     >
       <label for="eventDate">Event Date:</label>
       <em
         *ngIf="
-          newEventForm.controls['date']?.invalid &&
-          newEventForm.controls['date']?.touched
+          newEventForm.controls['date']!.invalid &&
+          newEventForm.controls['date']!.touched
         "
         >Required</em
       >
@@ -62,15 +62,15 @@
       class="form-group"
       [ngClass]="{
         error:
-          newEventForm.controls['time']?.invalid &&
-          newEventForm.controls['time']?.touched
+          newEventForm.controls['time']!.invalid &&
+          newEventForm.controls['time']!.touched
       }"
     >
       <label for="eventTime">Event Time:</label>
       <em
         *ngIf="
-          newEventForm.controls['time']?.invalid &&
-          newEventForm.controls['time']?.touched
+          newEventForm.controls['time']!.invalid &&
+          newEventForm.controls['time']!.touched
         "
         >Required</em
       >
@@ -88,15 +88,15 @@
       class="form-group"
       [ngClass]="{
         error:
-          newEventForm.controls['price']?.invalid &&
-          newEventForm.controls['price']?.touched
+          newEventForm.controls['price']!.invalid &&
+          newEventForm.controls['price']!.touched
       }"
     >
       <label for="eventPrice">Event Price:</label>
       <em
         *ngIf="
-          newEventForm.controls['price']?.invalid &&
-          newEventForm.controls['price']?.touched
+          newEventForm.controls['price']!.invalid &&
+          newEventForm.controls['price']!.touched
         "
         >Required</em
       >
@@ -163,22 +163,22 @@
       class="form-group"
       [ngClass]="{
         error:
-          newEventForm.controls['imageUrl']?.invalid &&
-          newEventForm.controls['imageUrl']?.touched
+          newEventForm.controls['imageUrl']!.invalid &&
+          newEventForm.controls['imageUrl']!.touched
       }"
     >
       <label for="imageUrl">Image:</label>
       <em
         *ngIf="
-          newEventForm.controls['imageUrl']?.invalid &&
-          newEventForm.controls['imageUrl']?.touched
+          newEventForm.controls['imageUrl']!.invalid &&
+          newEventForm.controls['imageUrl']!.touched
         "
         >Required</em
       >
       <em
         *ngIf="
-          newEventForm.controls['imageUrl']?.invalid &&
-          newEventForm.controls['imageUrl']?.touched
+          newEventForm.controls['imageUrl']!.invalid &&
+          newEventForm.controls['imageUrl']!.touched
         "
         >Must be a png or jpg url</em
       >

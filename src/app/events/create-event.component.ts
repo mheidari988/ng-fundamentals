@@ -26,7 +26,7 @@ export class CreateEventComponent implements OnInit {
 
   }
 
-  saveEvent(formData: NgForm) {
+  saveEvent(formData: IEvent) {
     console.log(formData);
   }
   onCancelClick() {
