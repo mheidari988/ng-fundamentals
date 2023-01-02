@@ -16,7 +16,10 @@ import { PageNotFoundComponent } from './shared/errors/page-not-found.component'
 import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
 import { AuthService } from './users/services/auth.service';
 import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { SessionListComponent } from './events/event-details/session-list.component';
+import { CollapsableWellComponent } from './events/event-details/collapsable-well.component';
 
 @NgModule({
   imports: [
@@ -25,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'inline' }),
     ToastContainerModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   declarations: [
@@ -34,7 +38,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsableWellComponent
   ],
   providers: [
     EventService,
