@@ -18,6 +18,7 @@ import { AuthService } from './users/services/auth.service';
 import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { SessionListComponent } from './events/event-details/session-list.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
     EventDetailsComponent,
     CreateEventComponent,
     PageNotFoundComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   providers: [
     EventService,

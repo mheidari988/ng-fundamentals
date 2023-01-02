@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISession } from '../models/isession';
 
 @Component({
-  selector: 'app-create-session',
+  selector: 'create-session',
   templateUrl: './create-session.component.html',
   styleUrls: ['./create-session.component.css']
 })
 export class CreateSessionComponent implements OnInit {
+  @Output() onCreated = new EventEmitter();
+  @Output() onCanceled = new EventEmitter();
 
   newSessionForm!: FormGroup;
 
@@ -44,7 +46,7 @@ export class CreateSessionComponent implements OnInit {
       voters: []
     };
 
-    console.log(session);
+    this.onCreated.emit(session);
   }
 
   isInvalid(ctrl: AbstractControl<any>): boolean {
