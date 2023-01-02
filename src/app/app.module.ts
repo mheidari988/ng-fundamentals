@@ -15,6 +15,7 @@ import { CreateEventComponent } from './events/create-event.component';
 import { PageNotFoundComponent } from './shared/errors/page-not-found.component';
 import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
 import { AuthService } from './users/services/auth.service';
+import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { AuthService } from './users/services/auth.service';
   providers: [
     EventService,
     EventRouteActivatorGuard,
+    ProfileRouteActivatorGuard,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     AuthService
   ],
