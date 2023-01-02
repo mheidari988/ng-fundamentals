@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './shared/errors/page-not-found.component'
 import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
 import { AuthService } from './users/services/auth.service';
 import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guar
     BrowserAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'inline' }),
     ToastContainerModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     EventsAppComponent,

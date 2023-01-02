@@ -20,4 +20,7 @@ export class LoginComponent {
       this.router.navigate(['/events']);
     }
   }
+  onCancel() {
+    window.history.back();
+  }
 }
