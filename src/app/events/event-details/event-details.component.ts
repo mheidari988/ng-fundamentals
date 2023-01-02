@@ -11,6 +11,8 @@ import { ISession } from '../models/isession';
 export class EventDetailsComponent implements OnInit {
   event?: IEvent;
   addMode = false;
+  filterBy: string = 'all';
+  sortBy: string = 'name';
 
   constructor(
     private eventService: EventService,
