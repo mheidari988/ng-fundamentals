@@ -1,11 +1,12 @@
 import { Component, Input } from "@angular/core";
+import { IEvent } from "./models/ievent";
 
 @Component({
     selector: 'event-thumbnail',
     template: `
         <div class="well hoverwell thumbnail">
             <h2>{{ event?.name }}</h2>
-            <div>Date: {{ event?.date }}</div>
+            <div>Date: {{ event?.date | date:'mediumDate'}}</div>
             <div [ngClass]="getStartTimeClass()" 
             [ngSwitch]="event?.time">Time: {{ event?.time }}
                 <span *ngSwitchCase="'10:00 am'">(Early start)</span>
@@ -28,7 +29,7 @@ import { Component, Input } from "@angular/core";
     `]
 })
 export class EventThumbnailComponent {
-    @Input() event: any;
+    @Input() event?: IEvent;
 
     getStartTimeClass() {
         if (this.event && this.event.time === '8:00 am') {
