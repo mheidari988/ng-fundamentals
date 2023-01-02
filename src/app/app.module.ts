@@ -19,6 +19,7 @@ import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guar
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
+import { CollapsableWellComponent } from './events/event-details/collapsable-well.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { SessionListComponent } from './events/event-details/session-list.compon
     CreateEventComponent,
     PageNotFoundComponent,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsableWellComponent
   ],
   providers: [
     EventService,
