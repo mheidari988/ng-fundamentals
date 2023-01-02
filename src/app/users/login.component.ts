@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,15 @@ export class LoginComponent {
   username?: string;
   password?: string;
 
+  constructor(private authService: AuthService, private router: Router) { }
+
   login(formData: NgForm) {
-    console.log('passed data from form: ', formData);
+    this.authService.loginUser(formData.value.userName, formData.value.password);
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/events']);
+    }
+  }
+  onCancel() {
+    window.history.back();
   }
 }

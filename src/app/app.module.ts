@@ -14,6 +14,9 @@ import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component';
 import { PageNotFoundComponent } from './shared/errors/page-not-found.component';
 import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
+import { AuthService } from './users/services/auth.service';
+import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -22,6 +25,7 @@ import { EventRouteActivatorGuard } from './events/event-details/event-route-act
     BrowserAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'inline' }),
     ToastContainerModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     EventsAppComponent,
@@ -35,7 +39,9 @@ import { EventRouteActivatorGuard } from './events/event-details/event-route-act
   providers: [
     EventService,
     EventRouteActivatorGuard,
-    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+    ProfileRouteActivatorGuard,
+    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+    AuthService
   ],
   bootstrap: [
     EventsAppComponent
