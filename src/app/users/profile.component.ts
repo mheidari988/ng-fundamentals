@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { AuthService } from './services/auth.service';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { IUser } from './models/iuser';
 import { Router } from '@angular/router';
+import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -17,13 +18,20 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    private toastrService: ToastrService) { }
+
+  @ViewChild(ToastContainerDirective, { static: true }) toastContainer!: ToastContainerDirective;
 
   profileForm!: FormGroup;
   firstName!: FormControl;
   lastName!: FormControl;
 
   ngOnInit(): void {
+    this.toastrService.overlayContainer = this.toastContainer;
+
     let validators = [
       Validators.required,
       Validators.minLength(3)
@@ -45,7 +53,9 @@ export class ProfileComponent implements OnInit {
   onSaveProfile(formData: IUser) {
     if (this.profileForm.valid) {
       this.authService.updateUser(formData.firstName, formData.lastName);
-      this.router.navigate(['/events']);
+      this.toastrService.success(`
+          Profile saved for ${formData.firstName} ${formData.lastName}
+      `);
     }
   }
 
