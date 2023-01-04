@@ -38,10 +38,28 @@
       </div>
       <form id="searchForm" (ngSubmit)="onSearchSessions(searchTerm)" class="navbar-form navbar-right">
         <div class="form-group">
-          <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Sessions" />
+          <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control"
+            placeholder="Search Sessions" />
         </div>
         <button class="btn btn-default">Search</button>
       </form>
     </div>
   </div>
 </div>
+
+<ng-template #searchResultModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div *ngFor="let session of foundSessions" class="col-md-5" (click)="onThumbnailClick(session.id,session.name)">
+        <session-thumbnail [session]="session">
+        </session-thumbnail>
+      </div>
+    </div>
+  </div>
+</ng-template>
