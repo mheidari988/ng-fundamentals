@@ -23,6 +23,7 @@ import { CollapsableWellComponent } from './events/event-details/collapsable-wel
 import { DurationPipe } from './shared/duration.pipe';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SessionThumbnailComponent } from './events/session-thumbnail.component';
+import { UpvoteComponent } from './events/event-details/upvote.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { SessionThumbnailComponent } from './events/session-thumbnail.component'
     CollapsableWellComponent,
     DurationPipe,
     SessionThumbnailComponent,
+    UpvoteComponent,
   ],
   providers: [
     EventService,
