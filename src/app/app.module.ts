@@ -21,6 +21,9 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CollapsableWellComponent } from './events/event-details/collapsable-well.component';
 import { DurationPipe } from './shared/duration.pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SessionThumbnailComponent } from './events/session-thumbnail.component';
+import { UpvoteComponent } from './events/event-details/upvote.component';
 
 @NgModule({
   imports: [
@@ -31,6 +34,7 @@ import { DurationPipe } from './shared/duration.pipe';
     ToastContainerModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     EventsAppComponent,
@@ -43,7 +47,9 @@ import { DurationPipe } from './shared/duration.pipe';
     CreateSessionComponent,
     SessionListComponent,
     CollapsableWellComponent,
-    DurationPipe
+    DurationPipe,
+    SessionThumbnailComponent,
+    UpvoteComponent,
   ],
   providers: [
     EventService,
