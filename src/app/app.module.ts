@@ -24,6 +24,7 @@ import { DurationPipe } from './shared/duration.pipe';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SessionThumbnailComponent } from './events/session-thumbnail.component';
 import { UpvoteComponent } from './events/event-details/upvote.component';
+import { LocationValidatorDirective } from './events/location-validator.directive';
 
 @NgModule({
   imports: [
@@ -50,6 +51,7 @@ import { UpvoteComponent } from './events/event-details/upvote.component';
     DurationPipe,
     SessionThumbnailComponent,
     UpvoteComponent,
+    LocationValidatorDirective,
   ],
   providers: [
     EventService,
