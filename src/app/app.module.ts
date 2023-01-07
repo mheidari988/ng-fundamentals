@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
@@ -10,13 +13,11 @@ import { EventService } from './events/services/eventService';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { AppRoutes } from './routes';
-import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component';
 import { PageNotFoundComponent } from './shared/errors/page-not-found.component';
 import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
 import { AuthService } from './users/services/auth.service';
 import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CollapsableWellComponent } from './events/event-details/collapsable-well.component';
@@ -25,6 +26,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { SessionThumbnailComponent } from './events/session-thumbnail.component';
 import { UpvoteComponent } from './events/event-details/upvote.component';
 import { LocationValidatorDirective } from './events/location-validator.directive';
+
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import { LocationValidatorDirective } from './events/location-validator.directiv
     ToastContainerModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    HttpClientModule,
   ],
   declarations: [
     EventsAppComponent,
