@@ -11,13 +11,23 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username?: string;
   password?: string;
+  loginInvalid = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   login(formData: NgForm) {
-    this.authService.loginUser(formData.value.userName, formData.value.password);
+    this.authService.loginUser(formData.value.userName, formData.value.password)
+      .subscribe(res => {
+        if (!res) {
+          this.loginInvalid = true;
+          console.log('not logged in');
+        }
+        else {
+          this.router.navigate(['/events']);
+        }
+      });
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/events']);
+
     }
   }
   onCancel() {
