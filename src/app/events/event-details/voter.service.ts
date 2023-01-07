@@ -11,6 +11,7 @@ export class VoterService {
   constructor(private http: HttpClient) { }
 
   deleteVote(eventId: number, session: ISession, voterName: string) {
+    session.voters = session.voters.filter(v => v !== voterName);
     const url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
     this.http.delete(url)
       .pipe(catchError(this.handleError<any>('deleteVote')))
