@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IEvent } from './models/ievent';
+import { EventService } from './services/eventService';
 
 @Component({
   selector: 'app-create-event',
@@ -20,15 +21,21 @@ export class CreateEventComponent implements OnInit {
   newEvent?: IEvent;
   isDirtyState = false;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private eventService: EventService) {
   }
   ngOnInit(): void {
 
   }
 
   saveEvent(formData: IEvent) {
-    console.log(formData);
+    this.eventService.saveEvent(formData).subscribe(() => {
+      this.isDirtyState = false;
+      this.router.navigate(['/events']);
+    })
   }
+
   onCancelClick() {
     this.router.navigate(['/events']);
   }
