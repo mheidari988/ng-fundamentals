@@ -30,7 +30,6 @@ export class NavbarComponent implements OnInit {
   onSearchSessions(text: string) {
     this.eventService.searchSessions(text).subscribe(sessions => {
       this.foundSessions = sessions;
-      console.log(this.foundSessions);
       this.modalRef = this.modalService.show(this.searchResultModal);
     })
   }

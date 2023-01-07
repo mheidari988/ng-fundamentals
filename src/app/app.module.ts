@@ -15,7 +15,6 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { AppRoutes } from './routes';
 import { CreateEventComponent } from './events/create-event.component';
 import { PageNotFoundComponent } from './shared/errors/page-not-found.component';
-import { EventRouteActivatorGuard } from './events/event-details/event-route-activator.guard';
 import { AuthService } from './users/services/auth.service';
 import { ProfileRouteActivatorGuard } from './users/profile-route-activator.guard';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
@@ -26,6 +25,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { SessionThumbnailComponent } from './events/session-thumbnail.component';
 import { UpvoteComponent } from './events/event-details/upvote.component';
 import { LocationValidatorDirective } from './events/location-validator.directive';
+import { EventResolver } from './events/event.resolver';
 
 
 @NgModule({
@@ -58,10 +58,10 @@ import { LocationValidatorDirective } from './events/location-validator.directiv
   ],
   providers: [
     EventService,
-    EventRouteActivatorGuard,
     ProfileRouteActivatorGuard,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
-    AuthService
+    AuthService,
+    EventResolver,
   ],
   bootstrap: [
     EventsAppComponent
